@@ -36,4 +36,3 @@ fclean:	clean
 	@ echo "🧹 cube3d fclean complete!\n"
 
 re: fclean all
-

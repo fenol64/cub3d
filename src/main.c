@@ -1,7 +1,10 @@
 #include "headers/cube.h"
 
-int main()
+int main(int c, char **v)
 {
-    ft_printf("Hello, World!\n");
+    t_cube cube;
+
+    if (!main_handler(c, v, &cube))
+        return (1);
     return (0);
 }
