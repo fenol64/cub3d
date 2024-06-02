@@ -1,4 +1,4 @@
-#include "headers/cube.h"
+#include "../headers/cube.h"
 
 int main(int c, char **v)
 {

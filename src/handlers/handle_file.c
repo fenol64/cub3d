@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   handle_file.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 19:48:17 by fnascime          #+#    #+#             */
-/*   Updated: 2024/05/31 20:23:24 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/02 01:50:58 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/cube.h"
+#include "../../headers/cube.h"
 
 t_bool handle_file(char *path)
 {

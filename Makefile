@@ -7,7 +7,7 @@ OBJS = $(SRCS:.c=.o)
 LIBFT_PATH=./libs/libft/libft.a
 MINILIBX_PATH=./libs/minilibx-linux/libmlx.a
 
-COMPILER = cc -Wall -Wextra -Werror -I ./src/headers
+COMPILER = cc -Wall -Wextra -Werror -I ./headers
 
 .c.o:
 	@ $(COMPILER) -c $< -o $(<:.c=.o)
