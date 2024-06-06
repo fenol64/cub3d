@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 19:50:52 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/02 01:51:02 by codespace        ###   ########.fr       */
+/*   Created: 2023/11/29 17:59:42 by fnascime          #+#    #+#             */
+/*   Updated: 2024/01/03 15:34:44 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/cube.h"
+#include "../includes/libft.h"
 
-void   handle_errors(char *error)
+int	ft_putptr(unsigned long int ptr, t_bool is_upper)
 {
-    ft_putstr_fd("Error\n", 2);
-    ft_putstr_fd(error, 2);
-    ft_putstr_fd("\n", 2);
+	if (!ptr)
+		return (ft_putstr("(nil)"));
+	return (ft_putstr("0x") + ft_putnbr_base(ptr, 16, is_upper));
 }

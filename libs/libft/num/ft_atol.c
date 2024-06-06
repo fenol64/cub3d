@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_handler.c                                     :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 20:15:50 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/02 01:50:52 by codespace        ###   ########.fr       */
+/*   Created: 2024/01/08 03:22:40 by codespace         #+#    #+#             */
+/*   Updated: 2024/01/08 03:29:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/cube.h"
+#include "../includes/libft.h"
 
-t_bool main_handler(int c, char **v, t_cube *cube)
+long int	ft_atol(const char *str)
 {
-    memset(cube, 0, sizeof(t_cube));
+	long int	nb;
+	int			i;
+	int			sign;
 
-    if (!(validate_args(c, v)
-        || handle_file(v[1])
-        || handle_map(v[1], cube)))
-        return (FALSE);
-
-    return (TRUE);
+	nb = 0;
+	i = 0;
+	sign = 1;
+	while (ft_isspace(str[i]))
+		i++;
+	if ((str[i] == '-') || (str[i] == '+'))
+	{
+		if (str[i] == '-')
+			sign = -sign;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		nb = (nb * 10) + (str[i] - '0');
+		i++;
+	}
+	return (nb * sign);
 }

@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_handler.c                                     :+:      :+:    :+:   */
+/*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 20:15:50 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/02 01:50:52 by codespace        ###   ########.fr       */
+/*   Created: 2024/05/31 15:51:24 by fnascime          #+#    #+#             */
+/*   Updated: 2024/06/02 01:51:49 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/cube.h"
+#ifndef CUBE_H
+# define CUBE_H
 
-t_bool main_handler(int c, char **v, t_cube *cube)
-{
-    memset(cube, 0, sizeof(t_cube));
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <math.h>
+# include <string.h>
+# include <errno.h>
 
-    if (!(validate_args(c, v)
-        || handle_file(v[1])
-        || handle_map(v[1], cube)))
-        return (FALSE);
+#include "../libs/libft/includes/libft.h"
 
-    return (TRUE);
-}
+#include "constants.h"
+#include "structs.h"
+#include "prototypes.h"
+
+#endif

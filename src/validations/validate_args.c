@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validate_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:11:16 by fnascime          #+#    #+#             */
-/*   Updated: 2024/05/31 19:51:21 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/02 01:51:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/cube.h"
+#include "../../headers/cube.h"
 
 int    validate_args(int c, char **v)
 {

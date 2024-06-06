@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validate_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 19:46:10 by fnascime          #+#    #+#             */
-/*   Updated: 2024/05/31 20:33:48 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/02 01:51:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/cube.h"
+#include "../../headers/cube.h"
 
 static t_bool   validate_file_extension(char *path)
 {
@@ -41,8 +41,7 @@ int   validate_file(char *path)
     return (fd);
 }
 
-    
 
-    
 
-    
+
+

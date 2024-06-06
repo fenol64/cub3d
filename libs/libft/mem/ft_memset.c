@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 19:50:52 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/02 01:51:02 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/18 20:08:48 by fnascime          #+#    #+#             */
+/*   Updated: 2023/12/04 20:02:49 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/cube.h"
+#include "../includes/libft.h"
 
-void   handle_errors(char *error)
+void	*ft_memset(void *s, int c, size_t n)
 {
-    ft_putstr_fd("Error\n", 2);
-    ft_putstr_fd(error, 2);
-    ft_putstr_fd("\n", 2);
+	size_t	i;
+	char	*str;
+
+	str = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = c;
+		i++;
+	}
+	return (s);
 }

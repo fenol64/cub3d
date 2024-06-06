@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 19:50:52 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/02 01:51:02 by codespace        ###   ########.fr       */
+/*   Created: 2023/12/04 12:55:02 by fnascime          #+#    #+#             */
+/*   Updated: 2023/12/06 18:37:26 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/cube.h"
-
-void   handle_errors(char *error)
+int	ft_islower(int c)
 {
-    ft_putstr_fd("Error\n", 2);
-    ft_putstr_fd(error, 2);
-    ft_putstr_fd("\n", 2);
+	return (c >= 'a' && c <= 'z');
 }

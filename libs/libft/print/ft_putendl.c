@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 19:50:52 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/02 01:51:02 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/21 19:58:41 by fnascime          #+#    #+#             */
+/*   Updated: 2023/12/04 20:01:57 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/cube.h"
+#include "../includes/libft.h"
 
-void   handle_errors(char *error)
+int	ft_putendl(char *s)
 {
-    ft_putstr_fd("Error\n", 2);
-    ft_putstr_fd(error, 2);
-    ft_putstr_fd("\n", 2);
+	int	i;
+
+	i = 0;
+	i += ft_putstr(s);
+	i += ft_putstr("\n");
+	return (i);
 }

@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 19:50:52 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/02 01:51:02 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/18 17:52:48 by fnascime          #+#    #+#             */
+/*   Updated: 2023/10/18 18:03:32 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/cube.h"
-
-void   handle_errors(char *error)
+int	ft_toupper(int c)
 {
-    ft_putstr_fd("Error\n", 2);
-    ft_putstr_fd(error, 2);
-    ft_putstr_fd("\n", 2);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	return (c);
 }
