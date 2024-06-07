@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:51:24 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/02 01:51:49 by codespace        ###   ########.fr       */
+/*   Updated: 2024/06/07 01:01:08 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 # include <string.h>
 # include <errno.h>
 
-#include "../libs/libft/includes/libft.h"
+# include "../libs/libft/includes/libft.h"
 
-#include "constants.h"
-#include "structs.h"
-#include "prototypes.h"
+# include "constants.h"
+# include "structs.h"
+# include "prototypes.h"
 
 #endif
