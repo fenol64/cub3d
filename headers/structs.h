@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:26 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 16:36:48 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/07 17:19:03 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -31,5 +31,11 @@ typedef struct s_cube
 	int			map_index;
 	t_bool		validated_args;
 }	t_cube;
+
+typedef struct s_pos
+{
+	int	x;
+	int y;
+}	t_pos;
 
 #endif
