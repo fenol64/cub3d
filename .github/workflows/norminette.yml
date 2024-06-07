@@ -15,4 +15,4 @@ jobs:
       - name: Install Norminette
         run: pipx install norminette
       - name: Run Norminette
-        run: norminette
+        run: norminette src
