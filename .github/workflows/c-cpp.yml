@@ -1,0 +1,26 @@
+name: C Build with Make and Norminette Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Norminette
+        run: sudo apt-get install -y norminette
+
+      - name: Build with Make
+        run: make
+
+      - name: Check Norminette style
+        run: norminette *.c *.h
