@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 21:08:56 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 15:38:47 by aldantas         ###   ########.fr       */
+/*   Created: 2024/06/07 15:38:58 by aldantas          #+#    #+#             */
+/*   Updated: 2024/06/07 15:50:55 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/cube.h"
 
-int	get_file(char *path)
+void	print_map(char **map, int rows, int cols)
 {
-	int	fd;
+	int	i;
+	int	j;
 
-	fd = open(path, O_RDONLY);
-	printf("fd: %d\n", fd);
-	return (fd);
+	i = 0;
+	j = 0;
+	while (i < rows)
+	{
+		j = 0;
+		while (j++ < cols)
+			printf("%c", map[i][j]);
+		printf("\n");
+		i++;
+	}
 }
 
-void	finish_file(int fd)
+void	free_map(char **map, int rows)
 {
-	char	*line;
+	int	i;
 
-	line = get_next_line(fd);
-	while (line)
-	{
-		free(line);
-		line = get_next_line(fd);
-	}
-	free(line);
-	close(fd);
+	i = 0;
+	while (i < rows)
+		free(map[i++]);
+	free(map);
 }
