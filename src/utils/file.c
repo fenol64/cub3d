@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 21:08:56 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 01:17:19 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/07 01:21:07 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	get_file(char *path)
 	int	fd;
 
 	fd = open(path, O_RDONLY);
-	printf("fd: %d\n", fd);
+	printf("fd: %d\n", fd)
 	return (fd);
 }
 
