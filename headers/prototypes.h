@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 17:04:40 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:55:48 by aldantas         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef PROTOTYPES_H
 # define PROTOTYPES_H
@@ -22,7 +22,7 @@ t_bool	handle_file(char *path);
 t_bool	main_handler(int c, char **v, t_cube *cube);
 
 // validations
-int     valid_map(char	*path);
+int		valid_map(char	*path);
 t_bool	validate_args(int c, char **v);
 int		validate_file(char *path);
 int		validate_file_args(char *file_path, t_cube *cube);

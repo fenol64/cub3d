@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
@@ -6,15 +6,16 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/07 18:28:47 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:51:50 by aldantas         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "../../headers/cube.h"
 
 static int	is_valid(int x, int y, char **map)
 {
-	if (x >= 0 && map[x] && y >= 0 && map[x][y] && (map[x][y] == '0' || map[x][y] == ' '))
+	if (x >= 0 && map[x] && y >= 0 && map[x][y] && (map[x][y] == '0'
+		|| map[x][y] == ' '))
 		return (1);
 	return (0);
 }
@@ -35,7 +36,7 @@ static int	flood_fill(int x, int y, char **map)
 	return (0);
 }
 
-static void find_player(char **map, t_pos *pos)
+static void	find_player(char **map, t_pos *pos)
 {
 	int		i;
 	int		j;
@@ -46,7 +47,8 @@ static void find_player(char **map, t_pos *pos)
 		j = 0;
 		while (map[i][j] != '\0')
 		{
-			if (map[i][j] == 'N' || map[i][j] == 'E' || map[i][j] == 'S' || map[i][j] == 'W')
+			if (map[i][j] == 'N' || map[i][j] == 'E'
+			|| map[i][j] == 'S' || map[i][j] == 'W')
 			{
 				pos->x = i;
 				pos->y = j - 1;
@@ -61,7 +63,7 @@ static void find_player(char **map, t_pos *pos)
 static int	is_valid_walls(t_cube *cube)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (cube->map[i] != NULL)
@@ -71,13 +73,14 @@ static int	is_valid_walls(t_cube *cube)
 		{
 			while (cube->map[i][j] != '\0')
 			{
-				if(cube->map[i][j++] == 'F')
+				if (cube->map[i][j++] == 'F')
 					return (FALSE);
 			}
 		}
 		else
 		{
-			if ((cube->map[i][0] == 'F') || (cube->map[i][ft_strlen(cube->map[i]) - 2] == 'F'))
+			if ((cube->map[i][0] == 'F') ||
+			(cube->map[i][ft_strlen(cube->map[i]) - 2] == 'F'))
 				return (FALSE);
 		}
 		i++;
