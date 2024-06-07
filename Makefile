@@ -16,7 +16,6 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ make -C ./libs/minilibx
-	clear
 	@ echo "🚀 minilibx compiled"
 	@ make -C ./libs/libft
 	@ $(COMPILER) $(OBJS) -o $(NAME) $(LIBFT_PATH)
@@ -25,7 +24,6 @@ $(NAME): $(OBJS)
 
 clean:
 	@ make -C ./libs/minilibx clean
-	clear
 	@ echo "🧹 minilibx clean complete!"
 	@ make -C ./libs/libft clean
 	@ rm -f $(OBJS)
@@ -37,3 +35,6 @@ fclean:	clean
 	@ echo "🧹 cube3d fclean complete!\n"
 
 re: fclean all
+
+norm:
+	@ norminette src/ headers/
