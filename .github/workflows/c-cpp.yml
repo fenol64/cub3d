@@ -12,7 +12,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+
     steps:
+    # Install libbsd based on your OS
+      - name: Install libbsd
+        if: runner.os == 'Linux'
+        run: |
+          if [[ -f /etc/debian_version ]]; then
+            sudo apt-get install -y libbsd-dev
+          elif [[ -f /etc/fedora-release ]]; then
+            sudo dnf install -y libbsd-devel
+          elif [[ -f /etc/alpine-release ]]; then
+            apk add libbsd-dev
+          else
+            echo "Unsupported Linux distribution"
+            exit 1
+          fi 
       - name: Checkout code
         uses: actions/checkout@v3
 
