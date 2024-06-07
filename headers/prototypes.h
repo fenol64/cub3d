@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 01:00:52 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/07 01:12:02 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_bool	validate_args(int c, char **v);
 int		validate_file(char *path);
 int		validate_file_args(char *file_path, t_cube *cube);
 t_bool	validate_textures(char *line, t_map_args *map_args);
+t_bool	validate_color(char *line);
 t_bool	validate_colors(char *line, t_map_args *map_args);
 
 // utils
