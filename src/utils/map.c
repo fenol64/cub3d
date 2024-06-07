@@ -1,40 +1,75 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 15:38:58 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/07 15:50:55 by aldantas         ###   ########.fr       */
+/*   Created: 2024/06/07 16:13:36 by aldantas          #+#    #+#             */
+/*   Updated: 2024/06/07 17:01:33 by aldantas         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "../../headers/cube.h"
 
-void	print_map(char **map, int rows, int cols)
+static char	*count_rows(int fd, int *rows)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < rows)
-	{
-		j = 0;
-		while (j++ < cols)
-			printf("%c", map[i][j]);
-		printf("\n");
-		i++;
-	}
+	*rows = *rows + 1;
+	return (get_next_line(fd));
 }
 
-void	free_map(char **map, int rows)
+static int	get_rows(char *path, t_cube *cube)
 {
-	int	i;
+	int		fd;
+	int		rows;
+	char	*tmp;
+	char	*line;
+
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		exit(-1);
+	line = get_next_line(fd);
+	if (!line)
+		return (-1);
+	rows = 1;
+	while (line)
+	{
+		tmp = line;
+		line = count_rows(fd, &rows);
+		free(tmp);
+	}
+	free(line);
+	close(fd);
+	cube->rows = rows--;
+	return (0);
+}
+
+static void	malloc_map(t_cube *cube)
+{
+	cube->map = malloc(sizeof(char *) * (cube->rows));
+	if (!cube->map)
+		return ;
+}
+
+void	get_map(char *path, t_cube *cube)
+{
+	char	*line;
+	char	*tmp;
+	int		fd;
+	int		i;
 
 	i = 0;
-	while (i < rows)
-		free(map[i++]);
-	free(map);
+	get_rows(path, cube);
+	malloc_map(cube);
+	fd = open(path, O_RDONLY);
+	line = (get_next_line(fd));
+	while (line && i < cube->rows)
+	{
+		tmp = line;
+		cube->map[i++] = ft_strdup(tmp);
+		line = get_next_line(fd);
+		free(tmp);
+	}
+	free(line);
+	close(fd);
 }

@@ -1,28 +1,39 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 00:24:04 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 16:55:39 by aldantas         ###   ########.fr       */
+/*   Created: 2024/06/07 15:38:58 by aldantas          #+#    #+#             */
+/*   Updated: 2024/06/07 17:03:32 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "../headers/cube.h"
+#include "../../headers/cube.h"
 
-// int	main(int c, char **v)
-// {
-// 	t_cube	cube;
-
-// 	if (!main_handler(c, v, &cube))
-// 		return (1);
-// 	return (0);
-// }
-
-int	main(int c, char **v)
+void	print_map(char **map, int rows, int cols)
 {
-	(void)c;
-	valid_map(v[1]);
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < rows)
+	{
+		j = 0;
+		while (j++ < cols)
+			printf("%c", map[i][j]);
+		i++;
+	}
+}
+
+void	free_map(char **map, int rows)
+{
+	int	i;
+
+	i = 0;
+	while (i < rows)
+		free(map[i++]);
+	free(map);
 }

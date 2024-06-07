@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
@@ -6,14 +6,11 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/07 15:51:42 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/07 17:07:04 by aldantas         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "../../headers/cube.h"
-
-# define ROWS 15
-# define COLS 33
 
 static int	is_valid(int x, int y, char **map)
 {
@@ -26,8 +23,6 @@ int	flood_fill(int x, int y, char **map)
 {
 	if (!is_valid(x, y, map) || map[x][y] == 'F')
 		return (0);
-	//if (map[x][y] == '1')
-	//	return (1);
 	map[x][y] = 'F';
 	if (flood_fill(x + 1, y, map))
 		return (1);
@@ -40,9 +35,12 @@ int	flood_fill(int x, int y, char **map)
 	return (0);
 }
 
-int	valid_map()
+int	valid_map(char	*path)
 {
-	char	**map;
+	t_cube	aux;
 
-	map = get_map(); // func para pegar a matriz do mapa
+	get_map(path, &aux); // func para pegar a matriz do mapa;
+	print_map(aux.map, 15, 33);
+	free_map(aux.map, 15);
+	return (FALSE);
 }
