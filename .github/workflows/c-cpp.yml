@@ -1,4 +1,4 @@
-name: C Build with Make and Norminette Check
+name: C Build with Make and Norminette Check (Pip)
 
 on:
   push:
@@ -16,8 +16,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Escolha a versão do Python
+
       - name: Install Norminette
-        run: sudo apt-get install -y norminette
+        run: pip install norminette
 
       - name: Build with Make
         run: make
