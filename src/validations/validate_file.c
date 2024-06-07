@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 19:46:10 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/02 01:51:18 by codespace        ###   ########.fr       */
+/*   Updated: 2024/06/06 23:29:11 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,18 @@ int   validate_file(char *path)
 {
     int fd;
 
-    fd = open(path, O_RDONLY);
+    if (!validate_file_extension(path))
+    {
+        handle_errors("Invalid file extension");
+        return (FALSE);
+    }
+    fd = get_file(path);
     if (fd == -1)
     {
         handle_errors("Invalid file");
         return (FALSE);
     }
-    if (!validate_file_extension(path))
-    {
-        handle_errors("Invalid file extension");
-        close(fd);
-        return (FALSE);
-    }
-    return (fd);
+    return (TRUE);
 }
 
 

@@ -20,6 +20,7 @@ $(NAME): $(OBJS)
 	@ echo "🚀 minilibx compiled"
 	@ make -C ./libs/libft
 	@ $(COMPILER) $(OBJS) -o $(NAME) $(LIBFT_PATH)
+	make clean
 	@ echo "✅ cube3d compile complete!\n"
 
 clean:

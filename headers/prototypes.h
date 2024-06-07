@@ -6,12 +6,14 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/05/31 20:23:28 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/06 23:32:23 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROTOTYPES_H
 # define PROTOTYPES_H
+
+#include "cube.h"
 
 
 // handlers
@@ -24,6 +26,12 @@ t_bool    main_handler(int c, char **v, t_cube *cube);
 // validations
 t_bool    validate_args(int c, char **v);
 int   validate_file(char *path);
+int validate_file_args(char *file_path, t_cube *cube);
+
+
+// utils
+int get_file(char *path);
+void finish_file(int fd);
 
 
 #endif
