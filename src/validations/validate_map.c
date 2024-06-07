@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/07 17:44:30 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:28:47 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -14,7 +14,7 @@
 
 static int	is_valid(int x, int y, char **map)
 {
-	if (x >= 0 && map[x] && y >= 0 && map[x][y] && (map[x][y] == '0'))
+	if (x >= 0 && map[x] && y >= 0 && map[x][y] && (map[x][y] == '0' || map[x][y] == ' '))
 		return (1);
 	return (0);
 }
@@ -58,20 +58,45 @@ static void find_player(char **map, t_pos *pos)
 	}
 }
 
+static int	is_valid_walls(t_cube *cube)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	while (cube->map[i] != NULL)
+	{
+		j = 0;
+		if (i == 0 || i == cube->rows)
+		{
+			while (cube->map[i][j] != '\0')
+			{
+				if(cube->map[i][j++] == 'F')
+					return (FALSE);
+			}
+		}
+		else
+		{
+			if ((cube->map[i][0] == 'F') || (cube->map[i][ft_strlen(cube->map[i]) - 2] == 'F'))
+				return (FALSE);
+		}
+		i++;
+	}
+	return (TRUE);
+}
+
 int	valid_map(char	*path)
 {
 	t_cube	aux;
 	t_pos	player;
 
-	player.x = 0;
-	player.y = 0;
 	get_map(path, &aux);
-	print_map(aux.map, 15, 33);
 	find_player(aux.map, &player);
 	flood_fill(player.x, player.y, aux.map);
-	printf("\n x: %d, y: %d\n", player.x, player.y);
-	printf("\ndepois do fill\n");
-	print_map(aux.map, 15, 33);
-	free_map(aux.map, 15);
-	return (FALSE);
+	if (is_valid_walls(&aux))
+		printf("O mapa é valido!");
+	else
+		printf("o mapa é invalido!");
+	free_map(aux.map, aux.rows);
+	return (TRUE);
 }
