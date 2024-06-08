@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:11:16 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/08 15:12:45 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 15:36:18 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ t_bool	validate_color(char *line)
 
 int	validate_arg(char *line, t_map_args *map_args)
 {
-	if (validate_colors(line, map_args) || validate_textures(line, map_args))
+	if (validate_colors(line, map_args)
+		|| validate_textures(line, map_args))
 		return (TRUE);
 	else
 	{
