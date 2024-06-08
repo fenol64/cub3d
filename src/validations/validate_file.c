@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 19:46:10 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 18:51:53 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 14:45:16 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,18 @@ t_bool	validate_textures(char *line, t_map_args *map_args)
 
 t_bool	validate_colors(char *line, t_map_args *map_args)
 {
-	if (ft_strncmp(line, "F", 1) == 0)
+	if (!ft_strncmp(line, "F", 1) || !ft_strncmp(line, "C", 1))
 	{
 		if (!validate_color(line + 2))
 		{
 			handle_errors("Invalid floor color");
 			return (FALSE);
 		}
-		map_args->f = ft_strdup(line + 2);
+		if (!ft_strncmp(line, "F", 1))
+			map_args->f = ft_strdup(line + 2);
+		else
+			map_args->c = ft_strdup(line + 2);
+		return (TRUE);
 	}
-	else if (ft_strncmp(line, "C", 1) == 0)
-	{
-		if (!validate_color(line + 2))
-		{
-			handle_errors("Invalid ceiling color");
-			return (FALSE);
-		}
-		map_args->c = ft_strdup(line + 2);
-	}
-	return (TRUE);
+	return (FALSE);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:11:16 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 15:37:58 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 14:45:05 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ t_bool	validate_color(char *line)
 
 int	validate_arg(char *line, t_map_args *map_args)
 {
-	if (validate_colors(line, map_args)
-		|| validate_textures(line, map_args))
+	if (validate_colors(line, map_args) || validate_textures(line, map_args))
 		return (TRUE);
 	else
 	{
@@ -69,13 +68,21 @@ int	validate_arg(char *line, t_map_args *map_args)
 
 t_bool	validated_all_args(t_map_args map_args)
 {
+	//printf("%s\n", map_args.f);
+	//printf("%s\n", map_args.c);
+	//printf("%s\n", map_args->no);
+	//printf("%s\n", map_args->so);
+	//printf("%s\n", map_args.we);
+	//printf("%s\n", map_args->ea);
 	if (map_args.f
 		&& map_args.c
 		&& map_args.no
 		&& map_args.so
 		&& map_args.we
 		&& map_args.ea)
+	{
 		return (TRUE);
+	}
 	return (FALSE);
 }
 

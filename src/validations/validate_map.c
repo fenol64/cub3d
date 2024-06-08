@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/07 18:51:50 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 14:05:01 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static int	is_valid_walls(t_cube *cube)
 	return (TRUE);
 }
 
-int	valid_map(char	*path)
+int	validate_map(char *path)
 {
 	t_cube	aux;
 	t_pos	player;
