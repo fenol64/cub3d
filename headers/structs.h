@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:26 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 18:53:46 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 18:02:33 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ typedef struct s_map_args
 	char	*f;
 }	t_map_args;
 
+typedef struct s_pos
+{
+	int	x;
+	int	y;
+}	t_pos;
+
 typedef struct s_cube
 {
 	char		**map;
@@ -30,12 +36,7 @@ typedef struct s_cube
 	int			rows;
 	int			map_index;
 	t_bool		validated_args;
+	t_pos		player;
 }	t_cube;
-
-typedef struct s_pos
-{
-	int	x;
-	int	y;
-}	t_pos;
 
 #endif

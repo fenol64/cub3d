@@ -6,11 +6,40 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:38:58 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/08 15:28:42 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 18:13:47 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/cube.h"
+
+int	is_player(char c)
+{
+	if (c == N || c == E
+		|| c == S || c == W)
+		return (TRUE);
+	return (FALSE);
+}
+
+char	**copy_map(char **map)
+{
+	char	**copy_map;
+	int		i;
+
+	i = 0;
+	while (map[i])
+		i++;
+	copy_map = malloc(sizeof(char *) * (i + 1));
+	if (!copy_map)
+		return (NULL);
+	i = 0;
+	while (map[i])
+	{
+		copy_map[i] = ft_strdup(map[i]);
+		i++;
+	}
+	copy_map[i] = NULL;
+	return (copy_map);
+}
 
 void	begin_map(int fd, int map_index)
 {
