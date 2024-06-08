@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:11:16 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/08 15:36:18 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 18:26:38 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,7 @@ t_bool	validated_all_args(t_map_args map_args)
 		&& map_args.so
 		&& map_args.we
 		&& map_args.ea)
-	{
 		return (TRUE);
-	}
 	return (FALSE);
 }
 
