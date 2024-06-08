@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:13:36 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/07 18:54:30 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 15:03:00 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ static int	get_rows(char *path, t_cube *cube)
 	char	*line;
 
 	fd = open(path, O_RDONLY);
-	if (fd < 0)
-		exit(-1);
+	begin_map(fd, cube->map_index);
 	line = get_next_line(fd);
 	if (!line)
 		return (-1);
@@ -62,6 +61,7 @@ void	get_map(char *path, t_cube *cube)
 	get_rows(path, cube);
 	malloc_map(cube);
 	fd = open(path, O_RDONLY);
+	begin_map(fd, cube->map_index);
 	line = (get_next_line(fd));
 	while (line && i < cube->rows)
 	{

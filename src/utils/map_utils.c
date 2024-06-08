@@ -6,11 +6,24 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:38:58 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/07 18:54:26 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 14:49:47 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/cube.h"
+
+void	begin_map(int fd, int map_index)
+{
+	char	*line;
+
+	line = get_next_line(fd);
+	while (line && map_index--)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	free(line);
+}
 
 void	print_map(char **map, int rows, int cols)
 {

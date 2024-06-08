@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/08 14:05:01 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 15:11:52 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,18 +88,26 @@ static int	is_valid_walls(t_cube *cube)
 	return (TRUE);
 }
 
-int	validate_map(char *path)
+int	validate_map(char *path, t_cube *cube)
 {
-	t_cube	aux;
+	t_cube	*aux;
 	t_pos	player;
 
-	get_map(path, &aux);
-	find_player(aux.map, &player);
-	flood_fill(player.x, player.y, aux.map);
-	if (is_valid_walls(&aux))
+	aux = cube;
+	get_map(path, aux);
+	find_player(aux->map, &player);
+	flood_fill(player.x, player.y, aux->map);
+	if (is_valid_walls(aux))
+	{
 		printf("O mapa é valido!");
+		free_map(aux->map, aux->rows);
+		return (TRUE);
+	}
 	else
+	{
+		free_map(aux->map, aux->rows);
 		printf("o mapa é invalido!");
-	free_map(aux.map, aux.rows);
-	return (TRUE);
+		return (FALSE);
+	}
+	return (FALSE);
 }

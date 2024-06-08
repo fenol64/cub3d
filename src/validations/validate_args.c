@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:11:16 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/08 14:45:05 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 15:12:45 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,6 @@ int	validate_arg(char *line, t_map_args *map_args)
 
 t_bool	validated_all_args(t_map_args map_args)
 {
-	//printf("%s\n", map_args.f);
-	//printf("%s\n", map_args.c);
-	//printf("%s\n", map_args->no);
-	//printf("%s\n", map_args->so);
-	//printf("%s\n", map_args.we);
-	//printf("%s\n", map_args->ea);
 	if (map_args.f
 		&& map_args.c
 		&& map_args.no

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 21:08:56 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 15:38:47 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/08 15:12:56 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	get_file(char *path)
 	int	fd;
 
 	fd = open(path, O_RDONLY);
-	printf("fd: %d\n", fd);
 	return (fd);
 }
 
