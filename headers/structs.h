@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:26 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 00:57:47 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/08 18:02:33 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,20 @@ typedef struct s_map_args
 	char	*f;
 }	t_map_args;
 
+typedef struct s_pos
+{
+	int	x;
+	int	y;
+}	t_pos;
+
 typedef struct s_cube
 {
 	char		**map;
 	t_map_args	map_args;
+	int			rows;
 	int			map_index;
 	t_bool		validated_args;
+	t_pos		player;
 }	t_cube;
 
 #endif
