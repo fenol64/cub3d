@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:51:24 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/08 17:55:37 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/16 03:36:50 by fenol            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <errno.h>
 
 # include "../libs/libft/includes/libft.h"
+# include "../libs/minilibx/mlx.h"
 
 # include "constants.h"
 # include "structs.h"
