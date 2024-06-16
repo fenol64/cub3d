@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/08 18:10:17 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/16 18:17:26 by fenol            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	handle_errors(char *message);
 t_bool	handle_map(char *path, t_cube *cube);
 t_bool	handle_file(char *path);
 t_bool	main_handler(int c, char **v, t_cube *cube);
+t_bool	handle_mlx(t_cube *cube);
 
 // validations
 int		validate_map(char *path, t_cube *cube);
@@ -39,5 +40,11 @@ void	get_map(char *path, t_cube *cube);
 int		is_player(char c);
 int		get_file(char *path);
 void	finish_file(int fd);
+
+// hooks
+int		close_hook(t_cube *cube);
+int		key_press_hook(int keycode, t_cube *cube);
+int		key_release_hook(int keycode, t_cube *cube);
+int		mouse_hook(int button, int x, int y, t_cube *cube);
 
 #endif

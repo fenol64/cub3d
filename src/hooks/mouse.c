@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_map.c                                       :+:      :+:    :+:   */
+/*   mouse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 18:49:21 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/16 04:00:27 by fenol            ###   ########.fr       */
+/*   Created: 2024/06/16 03:32:58 by fenol             #+#    #+#             */
+/*   Updated: 2024/06/16 18:17:02 by fenol            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/cube.h"
 
-t_bool	handle_map(char *path, t_cube *cube)
+int	mouse_hook(int button, int x, int y, t_cube *cube)
 {
-	if (!validate_file_args(path, cube))
-		return (FALSE);
-	if (!validate_map(path, cube))
-		return (FALSE);
-	return (TRUE);
+	(void)cube;
+	printf("Mouse button %d pressed at %d %d\n", button, x, y);
+	return (0);
 }

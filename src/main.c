@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 00:24:04 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/07 18:53:05 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/16 18:09:41 by fenol            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ int	main(int c, char **v)
 
 	if (!main_handler(c, v, &cube))
 		return (1);
+	handle_mlx(&cube);
 	return (0);
 }

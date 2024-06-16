@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_map.c                                       :+:      :+:    :+:   */
+/*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 18:49:21 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/16 04:00:27 by fenol            ###   ########.fr       */
+/*   Created: 2024/06/16 03:25:11 by fenol             #+#    #+#             */
+/*   Updated: 2024/06/16 18:11:29 by fenol            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/cube.h"
 
-t_bool	handle_map(char *path, t_cube *cube)
+int	key_press_hook(int keycode, t_cube *cube)
 {
-	if (!validate_file_args(path, cube))
-		return (FALSE);
-	if (!validate_map(path, cube))
-		return (FALSE);
-	return (TRUE);
+	(void)cube;
+	ft_printf("im pressing a key %d\n", keycode);
+	if (keycode == KEY_ESC)
+		exit(0);
+	return (0);
 }

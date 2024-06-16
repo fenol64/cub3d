@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_map.c                                       :+:      :+:    :+:   */
+/*   key_release.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 18:49:21 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/16 04:00:27 by fenol            ###   ########.fr       */
+/*   Created: 2024/06/16 03:30:00 by fenol             #+#    #+#             */
+/*   Updated: 2024/06/16 18:13:47 by fenol            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/cube.h"
 
-t_bool	handle_map(char *path, t_cube *cube)
+int	key_release_hook(int keycode, t_cube *cube)
 {
-	if (!validate_file_args(path, cube))
-		return (FALSE);
-	if (!validate_map(path, cube))
-		return (FALSE);
-	return (TRUE);
+	(void)cube;
+	if (keycode == KEY_ESC)
+	{
+		ft_printf("ESC released\n");
+		exit(0);
+	}
+	return (0);
 }
