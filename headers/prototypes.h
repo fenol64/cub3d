@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/19 17:24:01 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/21 23:08:13 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ int		close_hook(t_cube *cube);
 int		key_press_hook(int keycode, t_cube *cube);
 int		key_release_hook(int keycode, t_cube *cube);
 int		mouse_hook(int button, int x, int y, t_cube *cube);
-int     mouse_move_hook(int x, int y, t_cube *cube);
+int		mouse_move_hook(int x, int y, t_cube *cube);
 
 #endif
