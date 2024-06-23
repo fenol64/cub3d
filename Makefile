@@ -18,7 +18,7 @@ $(NAME): $(OBJS)
 	@ make -C ./libs/minilibx
 	@ echo "🚀 minilibx compiled"
 	@ make -C ./libs/libft
-	@ $(COMPILER) $(OBJS) -o $(NAME) $(LIBFT_PATH) $(MINILIBX_PATH) -lXext -lX11 -lm -lz
+	@ $(COMPILER) $(OBJS) -o $(NAME) $(LIBFT_PATH) $(MINILIBX_PATH) -lXext -lX11 -lm #-lz
 	make clean
 	@ echo "✅ cube3d compile complete!\n"
 

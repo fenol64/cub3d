@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/21 23:08:13 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/23 04:42:01 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ int		key_press_hook(int keycode, t_cube *cube);
 int		key_release_hook(int keycode, t_cube *cube);
 int		mouse_hook(int button, int x, int y, t_cube *cube);
 int		mouse_move_hook(int x, int y, t_cube *cube);
+
+//rays
+int **copy_char_to_int(char **char_matrix, int rows, int cols);
 
 #endif

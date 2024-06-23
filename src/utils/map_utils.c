@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:38:58 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/08 18:13:47 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/23 09:12:26 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,33 @@ char	**copy_map(char **map)
 	return (copy_map);
 }
 
+// int	empty_line(char *line)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	if (!line)
+// 		return (-1);
+// 	while (line[i])
+// 	{
+// 		if (line[i] != ' ' && line[i] != '\t')
+// 			return (0);
+// 		i++;
+// 	}
+// 	return (1);
+// }
+
 void	begin_map(int fd, int map_index)
 {
 	char	*line;
 
 	line = get_next_line(fd);
 	while (line && map_index--)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	while (line[0] == '\0')
 	{
 		free(line);
 		line = get_next_line(fd);

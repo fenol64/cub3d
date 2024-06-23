@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:26 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/16 18:17:51 by fenol            ###   ########.fr       */
+/*   Updated: 2024/06/23 04:44:31 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ typedef struct s_pos
 
 typedef struct s_cube
 {
+	char		**map;
+	int			**int_map;
 	void		*mlx;
 	void		*win;
-	char		**map;
-	t_map_args	map_args;
 	int			rows;
+	int			cols;
 	int			map_index;
+	t_map_args	map_args;
 	t_bool		validated_args;
 	t_pos		player;
 }				t_cube;
