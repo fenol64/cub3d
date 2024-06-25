@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:26 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/23 09:46:04 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/25 19:10:42 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ typedef struct s_cube
 	char		**map;
 	int			**int_map;
 	int			rows;
-	int			cols;
 	
 	int			map_index;
+	int			longest_row;
 	t_ray	r;
 	t_map_args	map_args;
 	t_bool		validated_args;
