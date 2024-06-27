@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_raycast.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 09:48:19 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/25 19:44:26 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/26 21:51:54 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,77 +39,116 @@ void update_image(t_cube *cube)
 	render_image(cube);
 }
 
-void	perform_raycasting(t_cube *cube) 
+void perform_raycasting(t_cube *cube)
 {
-	for (int x = 0; x < SCREEN_WIDTH; x++) {
-		double cameraX = 2 * x / (double)SCREEN_WIDTH - 1;
-		double rayDirX = cube->r.dirX + cube->r.planeX * cameraX;
-		double rayDirY = cube->r.dirY + cube->r.planeY * cameraX;
+	int x;
+	double cameraX;
+	double rayDirX;
+	double rayDirY;
+	int mapX;
+	int mapY;
+	double sideDistX;
+	double sideDistY;
+	double deltaDistX;
+	double deltaDistY;
+	double perpWallDist;
+	int stepX;
+	int stepY;
+	int hit;
+	int side;
+	int lineHeight;
+	int drawStart;
+	int drawEnd;
+	int color;
 
-		int mapX = (int)cube->r.playerX;
-		int mapY = (int)cube->r.playerY;
-
-		double sideDistX;
-		double sideDistY;
-
-		double deltaDistX = fabs(1 / rayDirX);
-		double deltaDistY = fabs(1 / rayDirY);
-		double perpWallDist;
-
-		int stepX;
-		int stepY;
-		int hit = 0;
-		int side;
-
-		if (rayDirX < 0) {
+	x = 0;
+	while (x < SCREEN_WIDTH)
+	{
+		cameraX = 2 * x / (double)SCREEN_WIDTH - 1;
+		rayDirX = cube->r.dirX + cube->r.planeX * cameraX;
+		rayDirY = cube->r.dirY + cube->r.planeY * cameraX;
+		mapX = (int)cube->r.playerX;
+		mapY = (int)cube->r.playerY;
+		sideDistX = 0;
+		sideDistY = 0;
+		deltaDistX = fabs(1 / rayDirX);
+		deltaDistY = fabs(1 / rayDirY);
+		perpWallDist = 0;
+		stepX = 0;
+		stepY = 0;
+		hit = 0;
+		side = 0;
+		if (rayDirX < 0)
+		{
 			stepX = -1;
 			sideDistX = (cube->r.playerX - mapX) * deltaDistX;
-		} else {
+		}
+		else
+		{
 			stepX = 1;
 			sideDistX = (mapX + 1.0 - cube->r.playerX) * deltaDistX;
 		}
-		if (rayDirY < 0) {
+		if (rayDirY < 0)
+		{
 			stepY = -1;
 			sideDistY = (cube->r.playerY - mapY) * deltaDistY;
-		} else {
+		}
+		else
+		{
 			stepY = 1;
 			sideDistY = (mapY + 1.0 - cube->r.playerY) * deltaDistY;
 		}
-
-		while (hit == 0) {
-			if (sideDistX < sideDistY) {
+		while (hit == 0)
+		{
+			if (sideDistX < sideDistY)
+			{
 				sideDistX += deltaDistX;
 				mapX += stepX;
 				side = 0;
-			} else {
+			}
+			else
+			{
 				sideDistY += deltaDistY;
 				mapY += stepY;
 				side = 1;
 			}
-			if (cube->int_map[mapX][mapY] > 0) hit = 1;
+			if (cube->int_map[mapX][mapY] > 0)
+				hit = 1;
 		}
-
-		if (side == 0) perpWallDist = (mapX - cube->r.playerX + (1 - stepX) / 2) / rayDirX;
-		else perpWallDist = (mapY - cube->r.playerY + (1 - stepY) / 2) / rayDirY;
-
-		int lineHeight = (int)(SCREEN_HEIGHT / perpWallDist);
-
-		int drawStart = -lineHeight / 2 + SCREEN_HEIGHT / 2;
-		if (drawStart < 0) drawStart = 0;
-		int drawEnd = lineHeight / 2 + SCREEN_HEIGHT / 2;
-		if (drawEnd >= SCREEN_HEIGHT) drawEnd = SCREEN_HEIGHT - 1;
-
-		int color;
-		switch(cube->int_map[mapX][mapY]) {
-			case 1:  color = 0xFF0000;  break;
-			case 2:  color = 0x00FF00;  break;
-			case 3:  color = 0x0000FF;  break;
-			case 4:  color = 0xFFFFFF;  break;
-			default: color = 0xFFFF00;  break;
+		if (side == 0)
+			perpWallDist = (mapX - cube->r.playerX + (1 - stepX) / 2) / rayDirX;
+		else
+			perpWallDist = (mapY - cube->r.playerY + (1 - stepY) / 2) / rayDirY;
+		lineHeight = (int)(SCREEN_HEIGHT / perpWallDist);
+		drawStart = -lineHeight / 2 + SCREEN_HEIGHT / 2;
+		if (drawStart < 0)
+			drawStart = 0;
+		drawEnd = lineHeight / 2 + SCREEN_HEIGHT / 2;
+		if (drawEnd >= SCREEN_HEIGHT)
+			drawEnd = SCREEN_HEIGHT - 1;
+		switch (cube->int_map[mapX][mapY])
+		{
+		case 1:
+			color = 0xFF0000;
+			break;
+		case 2:
+			color = 0x00FF00;
+			break;
+		case 3:
+			color = 0x0000FF;
+			break;
+		case 4:
+			color = 0xFFFFFF;
+			break;
+		default:
+			color = 0xFFFF00;
+			break;
 		}
-
-		if (side == 1) { color = color / 2; }
-
+		if (side == 1)
+		{
+			color = color / 2;
+		}
 		draw_vertical_line(x, drawStart, drawEnd, color, cube);
+		x++;
 	}
 }
