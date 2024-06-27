@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:13:36 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/25 19:11:39 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/26 21:40:50 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/cube.h"
 
-void	get_longest_row(char *line, t_cube *cube)
+static void	get_longest_row(char *line, t_cube *cube)
 {
 	int line_len;
 
@@ -25,12 +25,6 @@ void	get_longest_row(char *line, t_cube *cube)
 	else
 		cube->longest_row = line_len;
 } 
-
-static char	*count_rows(int fd, int *rows)
-{
-	*rows = *rows + 1;
-	return (get_next_line(fd));
-}
 
 static int	get_rows(char *path, t_cube *cube)
 {
@@ -48,7 +42,8 @@ static int	get_rows(char *path, t_cube *cube)
 	{
 		get_longest_row(line, cube);
 		free(line);
-		line = count_rows(fd, &rows);
+		rows++;
+		line = get_next_line(fd);
 	}
 	close(fd);
 	cube->rows = rows--;
@@ -76,10 +71,9 @@ void	get_map(char *path, t_cube *cube)
 	line = get_next_line(fd);
 	while (line && i < cube->rows)
 	{
-		cube->map[i++] = ft_strdup(line);
+		cube->map[i++] = ft_strdup_sw(line, cube->longest_row);
 		free(line);
 		line = get_next_line(fd);
-		
 	}
 	cube->map[i] = NULL;
 	free(line);

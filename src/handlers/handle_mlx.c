@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:32:05 by fenol             #+#    #+#             */
-/*   Updated: 2024/06/23 10:31:43 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/26 21:37:43 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	render_image(t_cube *cube)
 
 static void	init_ray(t_cube *cube)
 {
-	cube->r.playerX = 2.0;
-	cube->r.playerY = 2.0;
+	cube->r.playerX = cube->player.x + 0.5;
+	cube->r.playerY = cube->player.y + 0.5;
 	cube->r.dirX = -1.0;
 	cube->r.dirY = 0.0;
 	cube->r.planeX = 0.0;

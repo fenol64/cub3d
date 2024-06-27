@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/25 19:19:31 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/26 21:42:17 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,12 @@ int	validate_map(char *path, t_cube *cube)
 		printf("Mapa de inteiro\n");			// para contar apenas as linhas com algum conteudo
 		if (cube->int_map)
 		{
-		for (int i = 0; i < cube->rows; i++) {
-        	for (int j = 0; j < cube->longest_row; j++) {
-                printf("%d ", cube->int_map[i][j]);
-            }
-            printf("\n");
-        }
+			for (int i = 0; i < cube->rows; i++) {
+        		for (int j = 0; j < cube->longest_row; j++) {
+        	        printf("%d ", cube->int_map[i][j]);
+        	    }
+        	    printf("\n");
+      		}
 		}
 		return (TRUE);
 	}
