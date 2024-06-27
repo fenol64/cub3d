@@ -6,11 +6,47 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 03:30:00 by fenol             #+#    #+#             */
-/*   Updated: 2024/06/23 10:42:18 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 18:13:45 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/cube.h"
+
+static void	move_player(int keycode, t_cube *cube)
+{
+	if (keycode == 119)
+	{
+		if (cube->int_map[(int)(cube->r.player_x + cube->r.dir_x
+				* MOVE_SPEED)][(int)cube->r.player_y] == 0)
+			cube->r.player_x += cube->r.dir_x * MOVE_SPEED;
+		if (cube->int_map[(int)cube->r.player_x][(int)(cube->r.player_y
+			+ cube->r.dir_y * MOVE_SPEED)] == 0)
+			cube->r.player_y += cube->r.dir_y * MOVE_SPEED;
+	}
+	if (keycode == 115)
+	{
+		if (cube->int_map[(int)(cube->r.player_x - cube->r.dir_x
+				* MOVE_SPEED)][(int)cube->r.player_y] == 0)
+			cube->r.player_x -= cube->r.dir_x * MOVE_SPEED;
+		if (cube->int_map[(int)cube->r.player_x][(int)(cube->r.player_y
+			- cube->r.dir_y * MOVE_SPEED)] == 0)
+			cube->r.player_y -= cube->r.dir_y * MOVE_SPEED;
+	}
+}
+
+static void	look(t_cube *cube, double angle)
+{
+	double	olddir_x;
+	double	oldplane_x;
+
+	olddir_x = cube->r.dir_x;
+	oldplane_x = cube->r.plane_x;
+	cube->r.dir_x = cube->r.dir_x * cos(angle) - cube->r.dir_y * sin(angle);
+	cube->r.dir_y = olddir_x * sin(angle) + cube->r.dir_y * cos(angle);
+	cube->r.plane_x = cube->r.plane_x * cos(angle)
+		- cube->r.plane_y * sin(angle);
+	cube->r.plane_y = oldplane_x * sin(angle) + cube->r.plane_y * cos(angle);
+}
 
 int	key_release_hook(int keycode, t_cube *cube)
 {
@@ -20,32 +56,13 @@ int	key_release_hook(int keycode, t_cube *cube)
 		ft_printf("ESC released\n");
 		exit(0);
 	}
-	if (keycode == 65307) // ESC key
+	if (keycode == 65307)
 		exit(0);
-	if (keycode == 119) { // W key
-		if (cube->int_map[(int)(cube->r.playerX + cube->r.dirX * MOVE_SPEED)][(int)cube->r.playerY] == 0) cube->r.playerX += cube->r.dirX * MOVE_SPEED;
-		if (cube->int_map[(int)cube->r.playerX][(int)(cube->r.playerY + cube->r.dirY * MOVE_SPEED)] == 0) cube->r.playerY += cube->r.dirY * MOVE_SPEED;
-	}
-	if (keycode == 115) { // S key
-		if (cube->int_map[(int)(cube->r.playerX - cube->r.dirX * MOVE_SPEED)][(int)cube->r.playerY] == 0) cube->r.playerX -= cube->r.dirX * MOVE_SPEED;
-		if (cube->int_map[(int)cube->r.playerX][(int)(cube->r.playerY - cube->r.dirY * MOVE_SPEED)] == 0) cube->r.playerY -= cube->r.dirY * MOVE_SPEED;
-	}
-	if (keycode == 100) { // A -> olhar para a esquerda
-		double oldDirX = cube->r.dirX;
-		cube->r.dirX = cube->r.dirX * cos(-ROTATE_SPEED) - cube->r.dirY * sin(-ROTATE_SPEED);
-		cube->r.dirY = oldDirX * sin(-ROTATE_SPEED) + cube->r.dirY * cos(-ROTATE_SPEED);
-		double oldPlaneX = cube->r.planeX;
-		cube->r.planeX = cube->r.planeX * cos(-ROTATE_SPEED) - cube->r.planeY * sin(-ROTATE_SPEED);
-		cube->r.planeY = oldPlaneX * sin(-ROTATE_SPEED) + cube->r.planeY * cos(-ROTATE_SPEED);
-	}
-	if (keycode == 97) { // D -> olhar para a direita
-		double oldDirX = cube->r.dirX;
-		cube->r.dirX = cube->r.dirX * cos(ROTATE_SPEED) - cube->r.dirY * sin(ROTATE_SPEED);
-		cube->r.dirY = oldDirX * sin(ROTATE_SPEED) + cube->r.dirY * cos(ROTATE_SPEED);
-		double oldPlaneX = cube->r.planeX;
-		cube->r.planeX = cube->r.planeX * cos(ROTATE_SPEED) - cube->r.planeY * sin(ROTATE_SPEED);
-		cube->r.planeY = oldPlaneX * sin(ROTATE_SPEED) + cube->r.planeY * cos(ROTATE_SPEED);
-	}
+	move_player(keycode, cube);
+	if (keycode == 100)
+		look(cube, -ROTATE_SPEED);
+	if (keycode == 97)
+		look(cube, ROTATE_SPEED);
 	update_image(cube);
 	return (0);
 }

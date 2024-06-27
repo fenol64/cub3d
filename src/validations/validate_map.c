@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/27 17:10:30 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 18:12:20 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,7 @@ int	validate_map(char *path, t_cube *cube)
 		cube->int_map = copy_char_to_int(cube->map, cube->rows,
 				cube->longest_row);
 		free_map(aux_map, cube->rows);
-		/*printf("cube->rows: %d\n", cube->rows);
-		printf("Mapa de inteiro\n");			
-		if (cube->int_map)
-		{
-			for (int i = 0; i < cube->rows; i++) {
-        		for (int j = 0; j < cube->longest_row; j++) {
-        	        printf("%d ", cube->int_map[i][j]);
-        	    }
-        	    printf("\n");
-      		}
-		} */
+		free_map(cube->map, cube->rows);
 		return (TRUE);
 	}
 	else

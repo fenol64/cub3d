@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:32:05 by fenol             #+#    #+#             */
-/*   Updated: 2024/06/27 16:57:16 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 17:52:29 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static void	register_hooks(t_cube *cube)
 
 static void	init_ray(t_cube *cube)
 {
-	cube->r.playerX = cube->player.x + 0.5;
-	cube->r.playerY = cube->player.y + 0.5;
-	cube->r.dirX = -1.0;
-	cube->r.dirY = 0.0;
-	cube->r.planeX = 0.0;
-	cube->r.planeY = 0.66;
+	cube->r.player_x = cube->player.x + 0.5;
+	cube->r.player_y = cube->player.y + 0.5;
+	cube->r.dir_x = -1.0;
+	cube->r.dir_y = 0.0;
+	cube->r.plane_x = 0.0;
+	cube->r.plane_y = 0.66;
 }
 
 t_bool	handle_mlx(t_cube *cube)
@@ -39,7 +39,8 @@ t_bool	handle_mlx(t_cube *cube)
 	if (!cube->win_ptr)
 		return (0);
 	cube->img_ptr = mlx_new_image(cube->mlx_ptr, SCREEN_WIDTH, SCREEN_HEIGHT);
-	cube->img_data = mlx_get_data_addr(cube->img_ptr, &cube->bpp, &cube->size_line, &cube->endian);
+	cube->img_data = mlx_get_data_addr(cube->img_ptr, &cube->bpp,
+			&cube->size_line, &cube->endian);
 	init_ray(cube);
 	perform_raycasting(cube);
 	render_image(cube);
