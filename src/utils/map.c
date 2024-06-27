@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:13:36 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/26 21:40:50 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 17:14:20 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	get_longest_row(char *line, t_cube *cube)
 {
-	int line_len;
+	int	line_len;
 
 	line_len = ft_strlen(line);
 	if (cube->longest_row != 0)
@@ -24,7 +24,7 @@ static void	get_longest_row(char *line, t_cube *cube)
 	}
 	else
 		cube->longest_row = line_len;
-} 
+}
 
 static int	get_rows(char *path, t_cube *cube)
 {

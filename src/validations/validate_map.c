@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/26 21:42:17 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 17:10:30 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,11 @@ int	validate_map(char *path, t_cube *cube)
 	flood_fill(cube->player.x, cube->player.y, aux_map);
 	if (is_valid_walls(aux_map, cube->rows))
 	{
-		cube->int_map = copy_char_to_int(cube->map, cube->rows, cube->longest_row);
+		cube->int_map = copy_char_to_int(cube->map, cube->rows,
+				cube->longest_row);
 		free_map(aux_map, cube->rows);
-		printf("cube->rows: %d\n", cube->rows); // -> o numero de rows está maior doq realmente é, causando segfault. solução: adaptar a função get_rows
-		printf("Mapa de inteiro\n");			// para contar apenas as linhas com algum conteudo
+		/*printf("cube->rows: %d\n", cube->rows);
+		printf("Mapa de inteiro\n");			
 		if (cube->int_map)
 		{
 			for (int i = 0; i < cube->rows; i++) {
@@ -109,7 +110,7 @@ int	validate_map(char *path, t_cube *cube)
         	    }
         	    printf("\n");
       		}
-		}
+		} */
 		return (TRUE);
 	}
 	else

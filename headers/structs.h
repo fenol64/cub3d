@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:26 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/25 19:10:42 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:50:58 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,35 @@ typedef struct s_pos
 	int			y;
 }				t_pos;
 
+typedef struct {
+	double	cam_x;
+	double	r_dirx;
+	double	r_diry;
+	int		mapx;
+	int		mapy;
+	double	side_disx;
+	double	side_disy;
+	double	d_dist_x;
+	double	d_dist_y;
+	double	p_wall_dis;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		line_h;
+	int		draw_init;
+	int		draw_end;
+	int		color;
+}	t_ray_data;
+
 typedef struct
 {
-	double playerX;
-	double playerY;
-	double dirX;
-	double dirY;
-	double planeX;
-	double planeY;
+	double		playerX;
+	double		playerY;
+	double		dirX;
+	double		dirY;
+	double		planeX;
+	double		planeY;
 }	t_ray;
 
 typedef struct s_cube
@@ -55,7 +76,7 @@ typedef struct s_cube
 	
 	int			map_index;
 	int			longest_row;
-	t_ray	r;
+	t_ray		r;
 	t_map_args	map_args;
 	t_bool		validated_args;
 	t_pos		player;

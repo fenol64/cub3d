@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/26 21:16:03 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 17:02:00 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ int		mouse_hook(int button, int x, int y, t_cube *cube);
 int		mouse_move_hook(int x, int y, t_cube *cube);
 
 //rays
+void    draw_wall(t_cube *cube, t_ray_data *ray_data, int x);
 int     **copy_char_to_int(char **char_matrix, int rows, int cols);
 void    render_image(t_cube *cube);
 void	draw_vertical_line(int x, int start, int end, int color, t_cube *cube);
 void	put_pixel(int x, int y, int color, t_cube *cube);
 void    update_image(t_cube *cube);
 void	perform_raycasting(t_cube *cube);
-
 
 #endif

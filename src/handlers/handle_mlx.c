@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:32:05 by fenol             #+#    #+#             */
-/*   Updated: 2024/06/26 21:37:43 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:57:16 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ static void	register_hooks(t_cube *cube)
 	mlx_hook(cube->win_ptr, 17, 0, close_hook, cube);
 	mlx_hook(cube->win_ptr, 2, 1L << 0, key_press_hook, cube);
 	mlx_hook(cube->win_ptr, 6, 1L << 6, mouse_move_hook, cube);
-}
-
-void	render_image(t_cube *cube)
-{
-	mlx_put_image_to_window(cube->mlx_ptr, cube->win_ptr, cube->img_ptr, 0, 0);
 }
 
 static void	init_ray(t_cube *cube)
