@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/08 18:19:13 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 18:12:20 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,10 @@ int	validate_map(char *path, t_cube *cube)
 	flood_fill(cube->player.x, cube->player.y, aux_map);
 	if (is_valid_walls(aux_map, cube->rows))
 	{
+		cube->int_map = copy_char_to_int(cube->map, cube->rows,
+				cube->longest_row);
 		free_map(aux_map, cube->rows);
+		free_map(cube->map, cube->rows);
 		return (TRUE);
 	}
 	else

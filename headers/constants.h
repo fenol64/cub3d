@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:41 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/16 18:02:55 by fenol            ###   ########.fr       */
+/*   Updated: 2024/06/23 10:19:32 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@
 # define W 87
 # define E 69
 
-# define SCREEN_WIDTH 640
-# define SCREEN_HEIGHT 480
+# define SCREEN_WIDTH 1920
+# define SCREEN_HEIGHT 1200
+# define MAP_WIDTH 33
+# define MAP_HEIGHT 15
+# define MOVE_SPEED 0.3
+# define ROTATE_SPEED 0.2
+
 # define WIN_TITLE "cub3D"
 
 # define KEY_ESC 65307

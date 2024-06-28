@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/21 23:08:13 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/06/27 18:15:24 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_bool	validate_color(char *line);
 t_bool	validate_colors(char *line, t_map_args *map_args);
 
 // utils
+char	*ft_strdup_sw(const char *s, size_t size);
 char	**copy_map(char **map);
 void	begin_map(int fd, int map_index);
 void	free_map(char **map, int rows);
@@ -47,5 +48,15 @@ int		key_press_hook(int keycode, t_cube *cube);
 int		key_release_hook(int keycode, t_cube *cube);
 int		mouse_hook(int button, int x, int y, t_cube *cube);
 int		mouse_move_hook(int x, int y, t_cube *cube);
+
+//rays
+int		**copy_char_to_int(char **char_matrix, int rows, int cols);
+void	draw_wall(t_cube *cube, t_ray_data *ray_data, int x);
+void	render_image(t_cube *cube);
+void	draw_wall(t_cube *cube, t_ray_data *ray_data, int x);
+void	put_pixel(int x, int y, int color, t_cube *cube);
+void	update_image(t_cube *cube);
+void	perform_raycasting(t_cube *cube);
+void	set_wall_color(t_cube *cube, t_ray_data *ray_data);
 
 #endif

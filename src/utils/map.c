@@ -6,23 +6,30 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:13:36 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/08 15:23:52 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 17:14:20 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/cube.h"
 
-static char	*count_rows(int fd, int *rows)
+static void	get_longest_row(char *line, t_cube *cube)
 {
-	*rows = *rows + 1;
-	return (get_next_line(fd));
+	int	line_len;
+
+	line_len = ft_strlen(line);
+	if (cube->longest_row != 0)
+	{
+		if (cube->longest_row < line_len)
+			cube->longest_row = line_len;
+	}
+	else
+		cube->longest_row = line_len;
 }
 
 static int	get_rows(char *path, t_cube *cube)
 {
 	int		fd;
 	int		rows;
-	char	*tmp;
 	char	*line;
 
 	fd = open(path, O_RDONLY);
@@ -30,14 +37,14 @@ static int	get_rows(char *path, t_cube *cube)
 	line = get_next_line(fd);
 	if (!line)
 		return (-1);
-	rows = 1;
+	rows = 0;
 	while (line)
 	{
-		tmp = line;
-		line = count_rows(fd, &rows);
-		free(tmp);
+		get_longest_row(line, cube);
+		free(line);
+		rows++;
+		line = get_next_line(fd);
 	}
-	free(line);
 	close(fd);
 	cube->rows = rows--;
 	return (0);
@@ -53,7 +60,6 @@ static void	malloc_map(t_cube *cube)
 void	get_map(char *path, t_cube *cube)
 {
 	char	*line;
-	char	*tmp;
 	int		fd;
 	int		i;
 
@@ -62,13 +68,12 @@ void	get_map(char *path, t_cube *cube)
 	malloc_map(cube);
 	fd = open(path, O_RDONLY);
 	begin_map(fd, cube->map_index);
-	line = (get_next_line(fd));
+	line = get_next_line(fd);
 	while (line && i < cube->rows)
 	{
-		tmp = line;
-		cube->map[i++] = ft_strdup(tmp);
+		cube->map[i++] = ft_strdup_sw(line, cube->longest_row);
+		free(line);
 		line = get_next_line(fd);
-		free(tmp);
 	}
 	cube->map[i] = NULL;
 	free(line);

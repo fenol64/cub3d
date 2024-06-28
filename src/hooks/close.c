@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:39:19 by fenol             #+#    #+#             */
-/*   Updated: 2024/06/16 18:11:08 by fenol            ###   ########.fr       */
+/*   Updated: 2024/06/23 09:58:26 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	free_cube(t_cube *cube)
 
 int	close_win(t_cube *cube)
 {
-	mlx_destroy_window(cube->mlx, cube->win);
+	mlx_destroy_window(cube->mlx_ptr, cube->win_ptr);
 	ft_printf("Window closed\n");
 	free_cube(cube);
 	return (0);

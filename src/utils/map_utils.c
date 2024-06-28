@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:38:58 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/08 18:13:47 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 17:12:13 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,32 @@ void	begin_map(int fd, int map_index)
 		free(line);
 		line = get_next_line(fd);
 	}
+	while (line[0] == '\0')
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
 	free(line);
 }
 
-void	print_map(char **map, int rows, int cols)
+char	*ft_strdup_sw(const char *s, size_t size)
+{
+	char	*dup;
+	size_t	len;
+
+	dup = malloc(size + 1);
+	if (dup)
+	{
+		len = strlen(s);
+		ft_memcpy(dup, s, len);
+		ft_memset(dup + len, ' ', size - len);
+		dup[size] = '\0';
+	}
+	return (dup);
+}
+
+/*
+void	print_map(char **map, int rows, int cols) // vai ser removido dps
 {
 	int	i;
 	int	j;
@@ -68,7 +90,7 @@ void	print_map(char **map, int rows, int cols)
 			printf("%c", map[i][j]);
 		i++;
 	}
-}
+} */
 
 void	free_map(char **map, int rows)
 {
