@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:11:16 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/08 18:26:38 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/28 20:17:14 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int	validate_args(int c, char **v)
 	if (c != 2)
 	{
 		handle_errors("Invalid number of arguments");
-		return (TRUE);
+		return (FALSE);
 	}
 	if (ft_strncmp(v[1] + ft_strlen(v[1]) - 4, ".cub", 4) != 0)
 	{
 		handle_errors("Invalid file extension");
-		return (TRUE);
+		return (FALSE);
 	}
-	return (FALSE);
+	return (TRUE);
 }
 
 t_bool	validate_color(char *line)
