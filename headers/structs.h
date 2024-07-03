@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:26 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/27 18:17:56 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:17:02 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_pos
 {
 	int			x;
 	int			y;
+	char		dir;
 }				t_pos;
 
 typedef struct s_ray_data
