@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/03 19:56:10 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/03 21:02:29 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ static int	find_player(char **map, t_pos *pos)
 {
 	int		i;
 	int		j;
+	int		player_idx;
 
 	i = 0;
+	player_idx = 0;
 	while (map[i] != NULL)
 	{
 		j = 0;
@@ -52,12 +54,14 @@ static int	find_player(char **map, t_pos *pos)
 				pos->x = i;
 				pos->y = j;
 				pos->dir = map[i][j];
-				return (TRUE);
+				player_idx++;
 			}
 			j++;
 		}
 		i++;
 	}
+	if (player_idx == 1)
+		return (TRUE);
 	return (FALSE);
 }
 
