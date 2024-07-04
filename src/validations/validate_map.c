@@ -6,37 +6,13 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/03 21:02:29 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/03 21:59:16 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/cube.h"
 
-static int	is_valid(int x, int y, char **map)
-{
-	if (x >= 0 && map[x] && y >= 0 && map[x][y] && (map[x][y] == '0'
-		|| map[x][y] == ' '))
-		return (1);
-	return (0);
-}
-
-static int	flood_fill(int x, int y, char **map)
-{
-	if (!is_valid(x, y, map) || map[x][y] == 'F')
-		return (0);
-	map[x][y] = 'F';
-	if (flood_fill(x + 1, y, map))
-		return (1);
-	if (flood_fill(x - 1, y, map))
-		return (1);
-	if (flood_fill(x, y + 1, map))
-		return (1);
-	if (flood_fill(x, y - 1, map))
-		return (1);
-	return (0);
-}
-
-static int	find_player(char **map, t_pos *pos)
+static int	have_player(char **map, t_pos *pos)
 {
 	int		i;
 	int		j;
@@ -93,16 +69,39 @@ static int	is_valid_walls(char **map, int rows)
 	return (TRUE);
 }
 
+static int	is_valid_map(char **map)
+{
+	int		i;
+	int		j;
+	char	*charset;
+
+	i = 0;
+	j = 0;
+	charset = "01NSWE \n";
+	while (map[i] != NULL)
+	{
+		j = 0;
+		while (map[i][j] != '\0')
+		{
+			if (strchr(charset, map[i][j]) == NULL)
+				return (FALSE);
+			j++;
+		}
+		i++;
+	}
+	return (TRUE);
+}
+
 int	validate_map(char *path, t_cube *cube)
 {
-	int		have_player;
+	int		valid_map;
 
-	have_player = FALSE;
+	valid_map = FALSE;
 	get_map(path, cube);
-	if (find_player(cube->map, &cube->player))
-		have_player = TRUE;
+	if (is_valid_map(cube->map) && have_player(cube->map, &cube->player))
+		valid_map = TRUE;
 	flood_fill(cube->player.x, cube->player.y, cube->map);
-	if (have_player && is_valid_walls(cube->map, cube->rows))
+	if (valid_map && is_valid_walls(cube->map, cube->rows))
 	{
 		cube->int_map = copy_char_to_int(cube->map, cube->rows,
 				cube->longest_row);
