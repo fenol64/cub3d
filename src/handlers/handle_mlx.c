@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:32:05 by fenol             #+#    #+#             */
-/*   Updated: 2024/06/27 17:52:29 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:38:24 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,48 @@ static void	register_hooks(t_cube *cube)
 	mlx_hook(cube->win_ptr, 6, 1L << 6, mouse_move_hook, cube);
 }
 
+static void	set_dir_player(t_cube *cube)
+{
+	if (cube->player.dir == 'N')
+	{
+		cube->r.dir_x = -1;
+		cube->r.dir_y = 0;
+		cube->r.plane_x = 0;
+		cube->r.plane_y = 0.66;
+	}
+	if (cube->player.dir == 'S')
+	{
+		cube->r.dir_x = 1;
+		cube->r.dir_y = 0;
+		cube->r.plane_x = 0;
+		cube->r.plane_y = -0.66;
+	}
+}
+
+static void	set_dir_player2(t_cube *cube)
+{
+	if (cube->player.dir == 'W')
+	{
+		cube->r.dir_x = 0;
+		cube->r.dir_y = -1;
+		cube->r.plane_x = -0.66;
+		cube->r.plane_y = 0;
+	}
+	if (cube->player.dir == 'E')
+	{
+		cube->r.dir_x = 0;
+		cube->r.dir_y = 1;
+		cube->r.plane_x = 0.66;
+		cube->r.plane_y = 0;
+	}
+}
+
 static void	init_ray(t_cube *cube)
 {
 	cube->r.player_x = cube->player.x + 0.5;
 	cube->r.player_y = cube->player.y + 0.5;
-	cube->r.dir_x = -1.0;
-	cube->r.dir_y = 0.0;
-	cube->r.plane_x = 0.0;
-	cube->r.plane_y = 0.66;
+	set_dir_player(cube);
+	set_dir_player2(cube);
 }
 
 t_bool	handle_mlx(t_cube *cube)

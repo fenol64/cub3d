@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/27 18:15:24 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/03 22:02:58 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_bool	validate_color(char *line);
 t_bool	validate_colors(char *line, t_map_args *map_args);
 
 // utils
+int		flood_fill(int x, int y, char **map);
 char	*ft_strdup_sw(const char *s, size_t size);
 char	**copy_map(char **map);
 void	begin_map(int fd, int map_index);
