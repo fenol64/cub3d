@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_image.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:55:56 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/10 07:03:36 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:59:36 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,6 @@
 void	render_image(t_cube *cube)
 {
 	mlx_put_image_to_window(cube->mlx_ptr, cube->win_ptr, cube->img_ptr, 0, 0);
-}
-
-void	draw_vertical_line(int x, t_ray_data *ray_data, t_cube *cube)
-{
-	int index;
-	index = ray_data->draw_init;
-	while (index < ray_data->draw_end)
-	{
-		int tex_y = (int)cube->tex_pos & (IMAGE_HEIGHT - 1);
-		cube->tex_pos += cube->tex_step;
-		if (ray_data->side == 1 && ray_data->r_diry < 0)
-			put_pixel(x, index, cube->textures[0].img_data[
-				(int)(IMAGE_WIDTH * tex_y + cube->tex_x)
-			], cube);
-		else if (ray_data->side == 1 && ray_data->r_diry > 0)
-			put_pixel(x, index, cube->textures[1].img_data[
-				(int)(IMAGE_WIDTH * tex_y + cube->tex_x)
-			], cube);
-		else if (ray_data->side == 0 && ray_data->r_dirx < 0)
-			put_pixel(x, index, cube->textures[2].img_data[
-				(int)(IMAGE_WIDTH * tex_y + cube->tex_x)
-			], cube);
-		else if (ray_data->side == 0 && ray_data->r_dirx > 0)
-			put_pixel(x, index, cube->textures[3].img_data[
-				(int)(IMAGE_WIDTH * tex_y + cube->tex_x)
-			], cube);
-		index++;
-	}
-	
 }
 
 void	put_pixel(int x, int y, int color, t_cube *cube)
@@ -59,11 +30,6 @@ void	put_pixel(int x, int y, int color, t_cube *cube)
 	}
 }
 
-void	draw_wall(t_cube *cube, t_ray_data *ray_data, int x)
-{
-	draw_vertical_line(x, ray_data, cube);
-}
-
 void	update_image(t_cube *cube)
 {
 	cube->img_ptr = mlx_new_image(cube->mlx_ptr,
@@ -74,22 +40,24 @@ void	update_image(t_cube *cube)
 	render_image(cube);
 }
 
-int rgb_to_hex(char *rgb)
+int	rgb_to_hex(char *rgb)
 {
-	char **colors;
-	int return_color;
+	char	**colors;
+	int		return_color;
 
 	colors = ft_split(rgb, ',');
-	return_color = ft_atoi(colors[0]) << 16 | ft_atoi(colors[1]) << 8 | ft_atoi(colors[2]);
+	return_color = ft_atoi(colors[0]) << 16
+		| ft_atoi(colors[1]) << 8 | ft_atoi(colors[2]);
 	ft_free_matrix(colors);
-	return return_color;
+	return (return_color);
 }
-void draw_background(t_cube *cube)
+
+void	draw_background(t_cube *cube)
 {
-	int x;
-	int y;
-	int color_ceiling;
-	int color_floor;
+	int	x;
+	int	y;
+	int	color_ceiling;
+	int	color_floor;
 
 	color_ceiling = rgb_to_hex(cube->map_args.c);
 	color_floor = rgb_to_hex(cube->map_args.f);
@@ -105,5 +73,4 @@ void draw_background(t_cube *cube)
 				put_pixel(x++, y, color_floor, cube);
 		y++;
 	}
-	
 }

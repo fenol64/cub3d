@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/07/10 02:05:13 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:09:08 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,14 @@ int		mouse_move_hook(int x, int y, t_cube *cube);
 //rays
 int		**copy_char_to_int(char **char_matrix, int rows, int cols);
 void	draw_wall(t_cube *cube, t_ray_data *ray_data, int x);
+void	draw_vertical_line(int x, t_ray_data *ray_data, t_cube *cube);
 void	render_image(t_cube *cube);
 void	draw_wall(t_cube *cube, t_ray_data *ray_data, int x);
 void	put_pixel(int x, int y, int color, t_cube *cube);
 void	update_image(t_cube *cube);
 void	perform_raycasting(t_cube *cube);
 void	set_wall_color(t_cube *cube, t_ray_data *ray_data);
-void draw_background(t_cube *cube);
-t_bool open_image_texture(char *path, t_cube *cube, int i);
+void	draw_background(t_cube *cube);
+t_bool	open_image_texture(char *path, t_cube *cube, int i);
 
 #endif

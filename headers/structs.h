@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:26 by fnascime          #+#    #+#             */
-/*   Updated: 2024/07/10 02:33:28 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:06:07 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_texture
 	int			bpp;
 	int			size_line;
 	int			endian;
-} t_texture;
+}	t_texture;
 
 typedef struct s_pos
 {
