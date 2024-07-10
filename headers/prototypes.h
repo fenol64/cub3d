@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/07/03 22:02:58 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/10 02:05:13 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,7 @@ void	put_pixel(int x, int y, int color, t_cube *cube);
 void	update_image(t_cube *cube);
 void	perform_raycasting(t_cube *cube);
 void	set_wall_color(t_cube *cube, t_ray_data *ray_data);
+void draw_background(t_cube *cube);
+t_bool open_image_texture(char *path, t_cube *cube, int i);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:26 by fnascime          #+#    #+#             */
-/*   Updated: 2024/07/03 19:17:02 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/10 02:33:28 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ typedef struct s_map_args
 	char		*c;
 	char		*f;
 }				t_map_args;
+
+typedef struct s_texture
+{
+	void		*img_ptr;
+	int			*img_data;
+	int			bpp;
+	int			size_line;
+	int			endian;
+} t_texture;
 
 typedef struct s_pos
 {
@@ -82,6 +91,10 @@ typedef struct s_cube
 	t_map_args	map_args;
 	t_bool		validated_args;
 	t_pos		player;
+	t_texture	textures[4];
+	double		tex_x;
+	double		tex_step;
+	double		tex_pos;
 }				t_cube;
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_release.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 03:30:00 by fenol             #+#    #+#             */
-/*   Updated: 2024/06/27 18:13:45 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/10 08:50:57 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	key_release_hook(int keycode, t_cube *cube)
 	(void)cube;
 	if (keycode == KEY_ESC)
 	{
-		ft_printf("ESC released\n");
 		exit(0);
 	}
 	if (keycode == 65307)

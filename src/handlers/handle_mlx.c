@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_mlx.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:32:05 by fenol             #+#    #+#             */
-/*   Updated: 2024/07/03 19:38:24 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/10 06:55:10 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,13 @@ t_bool	handle_mlx(t_cube *cube)
 	cube->img_ptr = mlx_new_image(cube->mlx_ptr, SCREEN_WIDTH, SCREEN_HEIGHT);
 	cube->img_data = mlx_get_data_addr(cube->img_ptr, &cube->bpp,
 			&cube->size_line, &cube->endian);
+	if (!open_image_texture(cube->map_args.no, cube, 0) || 
+		!open_image_texture(cube->map_args.so, cube, 1) ||
+		!open_image_texture(cube->map_args.we, cube, 2) ||
+		!open_image_texture(cube->map_args.ea, cube, 3))
+			return (FALSE);
 	init_ray(cube);
+	draw_background(cube);
 	perform_raycasting(cube);
 	render_image(cube);
 	register_hooks(cube);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:41 by fnascime          #+#    #+#             */
-/*   Updated: 2024/06/23 10:19:32 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/10 02:06:51 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@
 # define WIN_TITLE "cub3D"
 
 # define KEY_ESC 65307
+
+# define IMAGE_WIDTH 128
+# define IMAGE_HEIGHT 128
 
 #endif
