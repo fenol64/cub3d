@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_raycast.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 09:48:19 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/27 18:05:47 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/10 01:35:49 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	perform_raycasting(t_cube *cube)
 	t_ray_data	ray_data;
 
 	x = 0;
+	draw_background(cube);
 	while (x < SCREEN_WIDTH)
 	{
 		initialize_ray_data(cube, &ray_data, x);
