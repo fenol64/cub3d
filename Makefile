@@ -1,5 +1,6 @@
-NAME=cube3d
+MAKEFLAGS += --silent
 
+NAME=cub3d
 RAW_SRCS= $(shell find src)
 SRCS = $(filter %.c, $(RAW_SRCS))
 OBJS = $(SRCS:.c=.o)

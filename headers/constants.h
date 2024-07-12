@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:15:41 by fnascime          #+#    #+#             */
-/*   Updated: 2024/07/10 02:06:51 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/07/11 22:38:45 by fenol            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@
 
 # define IMAGE_WIDTH 128
 # define IMAGE_HEIGHT 128
+# define MAP_CHARSET "01NSWE \n"
 
 #endif

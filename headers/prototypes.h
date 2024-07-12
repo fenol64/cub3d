@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/07/10 16:09:08 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/11 22:46:59 by fenol            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	get_map(char *path, t_cube *cube);
 int		is_player(char c);
 int		get_file(char *path);
 void	finish_file(int fd);
+int		rgb_to_hex(char *rgb);
 
 // hooks
 int		close_hook(t_cube *cube);
@@ -50,7 +51,7 @@ int		key_release_hook(int keycode, t_cube *cube);
 int		mouse_hook(int button, int x, int y, t_cube *cube);
 int		mouse_move_hook(int x, int y, t_cube *cube);
 
-//rays
+// rays
 int		**copy_char_to_int(char **char_matrix, int rows, int cols);
 void	draw_wall(t_cube *cube, t_ray_data *ray_data, int x);
 void	draw_vertical_line(int x, t_ray_data *ray_data, t_cube *cube);
@@ -62,5 +63,6 @@ void	perform_raycasting(t_cube *cube);
 void	set_wall_color(t_cube *cube, t_ray_data *ray_data);
 void	draw_background(t_cube *cube);
 t_bool	open_image_texture(char *path, t_cube *cube, int i);
+void	draw_minimap(t_cube *cube);
 
 #endif
