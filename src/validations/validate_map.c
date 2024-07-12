@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/03 21:59:16 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/11 22:35:11 by fenol            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	have_player(char **map, t_pos *pos)
 {
-	int		i;
-	int		j;
-	int		player_idx;
+	int	i;
+	int	j;
+	int	player_idx;
 
 	i = 0;
 	player_idx = 0;
@@ -60,8 +60,7 @@ static int	is_valid_walls(char **map, int rows)
 		}
 		else
 		{
-			if ((map[i][0] == 'F') ||
-			(map[i][ft_strlen(map[i]) - 2] == 'F'))
+			if ((map[i][0] == 'F') || (map[i][ft_strlen(map[i]) - 2] == 'F'))
 				return (FALSE);
 		}
 		i++;
@@ -71,19 +70,17 @@ static int	is_valid_walls(char **map, int rows)
 
 static int	is_valid_map(char **map)
 {
-	int		i;
-	int		j;
-	char	*charset;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	charset = "01NSWE \n";
 	while (map[i] != NULL)
 	{
 		j = 0;
 		while (map[i][j] != '\0')
 		{
-			if (strchr(charset, map[i][j]) == NULL)
+			if (strchr(MAP_CHARSET, map[i][j]) == NULL)
 				return (FALSE);
 			j++;
 		}
@@ -94,7 +91,7 @@ static int	is_valid_map(char **map)
 
 int	validate_map(char *path, t_cube *cube)
 {
-	int		valid_map;
+	int	valid_map;
 
 	valid_map = FALSE;
 	get_map(path, cube);
@@ -105,9 +102,7 @@ int	validate_map(char *path, t_cube *cube)
 	{
 		cube->int_map = copy_char_to_int(cube->map, cube->rows,
 				cube->longest_row);
-		free_map(cube->map, cube->rows);
 		return (TRUE);
 	}
-	free_map(cube->map, cube->rows);
 	return (FALSE);
 }

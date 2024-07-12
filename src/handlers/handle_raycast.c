@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_raycast.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 09:48:19 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/10 01:35:49 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/07/11 22:40:47 by fenol            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ static void	find_hit(t_cube *cube, t_ray_data *ray_data)
 static void	calculates(t_cube *cube, t_ray_data *ray_data)
 {
 	if (ray_data->side == 0)
-		ray_data->p_wall_dis = (ray_data->mapx - cube->r.player_x
-				+ (1 - ray_data->step_x) / 2) / ray_data->r_dirx;
+		ray_data->p_wall_dis = (ray_data->mapx - cube->r.player_x + (1
+					- ray_data->step_x) / 2) / ray_data->r_dirx;
 	else
-		ray_data->p_wall_dis = (ray_data->mapy - cube->r.player_y
-				+ (1 - ray_data->step_y) / 2) / ray_data->r_diry;
+		ray_data->p_wall_dis = (ray_data->mapy - cube->r.player_y + (1
+					- ray_data->step_y) / 2) / ray_data->r_diry;
 	ray_data->line_h = (int)(SCREEN_HEIGHT / ray_data->p_wall_dis);
 	ray_data->draw_init = -ray_data->line_h / 2 + SCREEN_HEIGHT / 2;
 	if (ray_data->draw_init < 0)
@@ -113,4 +113,5 @@ void	perform_raycasting(t_cube *cube)
 		draw_wall(cube, &ray_data, x);
 		x++;
 	}
+	draw_minimap(cube);
 }
