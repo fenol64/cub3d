@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/07/11 22:46:59 by fenol            ###   ########.fr       */
+/*   Updated: 2024/07/12 18:56:54 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int		key_press_hook(int keycode, t_cube *cube);
 int		key_release_hook(int keycode, t_cube *cube);
 int		mouse_hook(int button, int x, int y, t_cube *cube);
 int		mouse_move_hook(int x, int y, t_cube *cube);
+void	move_player(int keycode, t_cube *cube);
 
 // rays
 int		**copy_char_to_int(char **char_matrix, int rows, int cols);
