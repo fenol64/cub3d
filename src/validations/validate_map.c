@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/31 20:24:40 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/31 20:31:14 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ static int	is_valid_walls(char **map, int rows)
 		{
 			while (map[i][j] != '\0')
 			{
-				if (ft_strchr("FNSWE", map[i][j++]) != NULL)
+				if (ft_strchr(WALL_INVALID, map[i][j++]) != NULL)
 					return (FALSE);
 			}
 		}
 		else
 		{
-			if (ft_strchr("FNSWE", map[i][j++]) != NULL ||
-				ft_strchr("FNSWE", map[i][ft_strlen(map[i]) - 2]) != NULL)
+			if (ft_strchr(WALL_INVALID, map[i][j++]) != NULL ||
+				ft_strchr(WALL_INVALID, map[i][ft_strlen(map[i]) - 2]) != NULL)
 				return (FALSE);
 		}
 		i++;
