@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/11 22:35:11 by fenol            ###   ########.fr       */
+/*   Updated: 2024/07/31 20:31:14 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,14 @@ static int	is_valid_walls(char **map, int rows)
 		{
 			while (map[i][j] != '\0')
 			{
-				if (map[i][j++] == 'F')
+				if (ft_strchr(WALL_INVALID, map[i][j++]) != NULL)
 					return (FALSE);
 			}
 		}
 		else
 		{
-			if ((map[i][0] == 'F') || (map[i][ft_strlen(map[i]) - 2] == 'F'))
+			if (ft_strchr(WALL_INVALID, map[i][j++]) != NULL ||
+				ft_strchr(WALL_INVALID, map[i][ft_strlen(map[i]) - 2]) != NULL)
 				return (FALSE);
 		}
 		i++;
