@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:38:58 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/03 19:54:30 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/02 16:54:36 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,23 +53,6 @@ char	*ft_strdup_sw(const char *s, size_t size)
 	}
 	return (dup);
 }
-
-/*
-void	print_map(char **map, int rows, int cols) // vai ser removido dps
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < rows)
-	{
-		j = 0;
-		while (j++ < cols)
-			printf("%c", map[i][j]);
-		i++;
-	}
-} */
 
 void	free_map(char **map, int rows)
 {

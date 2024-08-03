@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/31 20:31:14 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/02 21:01:18 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,5 @@ int	validate_map(char *path, t_cube *cube)
 				cube->longest_row);
 		return (TRUE);
 	}
-	return (FALSE);
+	return (handle_errors("Map Error"), FALSE);
 }
