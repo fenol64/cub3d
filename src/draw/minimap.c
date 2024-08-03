@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 22:38:37 by fenol             #+#    #+#             */
-/*   Updated: 2024/07/11 22:44:30 by fenol            ###   ########.fr       */
+/*   Updated: 2024/08/02 16:50:31 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/cube.h"
 
-void	draw_minimap_square(t_cube *cube, int i, int j, int color)
+static void	draw_minimap_square(t_cube *cube, int i, int j, int color)
 {
 	int	x;
 	int	y;
