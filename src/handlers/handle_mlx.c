@@ -67,6 +67,8 @@ static void	init_ray(t_cube *cube)
 
 t_bool	handle_mlx(t_cube *cube)
 {
+	if (!validate_all_tex_path(cube))
+		return (handle_errors("invalid texture"), FALSE);
 	cube->mlx_ptr = mlx_init();
 	cube->win_ptr = mlx_new_window(cube->mlx_ptr, SCREEN_WIDTH, SCREEN_HEIGHT,
 			WIN_TITLE);

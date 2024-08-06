@@ -64,16 +64,9 @@ void	set_wall_color(t_cube *cube, t_ray_data *ray_data)
 
 t_bool	open_image_texture(char *path, t_cube *cube, int i)
 {
-	int	fd;
 	int	w;
 	int	h;
 
-	path[ft_strlen(path) - 1] = '\0';
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-		return (handle_errors("Invalid file"), FALSE);
-	if (ft_strncmp(path + ft_strlen(path) - 4, ".xpm", 4) != 0)
-		return (handle_errors("Invalid file extension"), FALSE);
 	cube->textures[i].img_ptr = mlx_xpm_file_to_image(cube->mlx_ptr,
 			path, &w, &h);
 	if (!cube->textures[i].img_ptr)

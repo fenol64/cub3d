@@ -26,15 +26,15 @@ int	validate_file(char *path)
 {
 	int	fd;
 
+	fd = get_file(path);
+	if (fd < 0)
+	{
+		handle_errors("Invalid file");
+		return (FALSE);
+	}
 	if (!validate_file_extension(path))
 	{
 		handle_errors("Invalid file extension");
-		return (FALSE);
-	}
-	fd = get_file(path);
-	if (fd == -1)
-	{
-		handle_errors("Invalid file");
 		return (FALSE);
 	}
 	return (TRUE);

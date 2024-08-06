@@ -24,6 +24,7 @@ t_bool	handle_mlx(t_cube *cube);
 
 // validations
 int		validate_map(char *path, t_cube *cube);
+t_bool  validate_all_tex_path(t_cube *cube);
 t_bool	validate_args(int c, char **v);
 int		validate_file(char *path);
 int		validate_file_args(char *file_path, t_cube *cube);

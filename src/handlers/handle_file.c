@@ -15,6 +15,6 @@
 t_bool	handle_file(char *path)
 {
 	if (!validate_file(path))
-		return (TRUE);
-	return (FALSE);
+		return (FALSE);
+	return (TRUE);
 }
