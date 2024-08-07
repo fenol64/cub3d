@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_mlx.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:32:05 by fenol             #+#    #+#             */
-/*   Updated: 2024/07/11 22:07:54 by fenol            ###   ########.fr       */
+/*   Updated: 2024/08/06 22:39:40 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ static void	init_ray(t_cube *cube)
 t_bool	handle_mlx(t_cube *cube)
 {
 	if (!validate_all_tex_path(cube))
+	{
+		free_cube(cube);
 		return (handle_errors("invalid texture"), FALSE);
+	}
 	cube->mlx_ptr = mlx_init();
 	cube->win_ptr = mlx_new_window(cube->mlx_ptr, SCREEN_WIDTH, SCREEN_HEIGHT,
 			WIN_TITLE);

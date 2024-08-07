@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:11:16 by fnascime          #+#    #+#             */
-/*   Updated: 2024/08/02 20:56:59 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/06 22:46:33 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ t_bool	validate_color(char *line)
 
 int	validate_arg(char *line, t_map_args *map_args)
 {
-	if (validate_colors(line, map_args)
-		|| validate_textures(line, map_args))
+	if (validate_colors(line, map_args) || validate_textures(line, map_args))
 		return (TRUE);
 	else
 	{
@@ -69,11 +68,7 @@ int	validate_arg(char *line, t_map_args *map_args)
 
 t_bool	validated_all_args(t_map_args map_args)
 {
-	if (map_args.f
-		&& map_args.c
-		&& map_args.no
-		&& map_args.so
-		&& map_args.we
+	if (map_args.f && map_args.c && map_args.no && map_args.so && map_args.we
 		&& map_args.ea)
 		return (TRUE);
 	return (FALSE);
@@ -94,14 +89,13 @@ t_bool	validate_file_args(char *file_path, t_cube *cube)
 			break ;
 		}
 		if (*line != '\n')
-		{
 			if (!validate_arg(line, &cube->map_args))
 				break ;
-		}
 		free(line);
 		line = get_next_line(fd);
 		cube->map_index++;
 	}
+	free(line);
 	finish_file(fd);
 	if (cube->validated_args)
 		return (TRUE);

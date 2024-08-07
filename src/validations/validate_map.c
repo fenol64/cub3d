@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:22:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/02 21:01:18 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/06 22:30:53 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,9 @@ static int	is_valid_walls(char **map, int rows)
 		}
 		else
 		{
-			if (ft_strchr(WALL_INVALID, map[i][j++]) != NULL ||
-				ft_strchr(WALL_INVALID, map[i][ft_strlen(map[i]) - 2]) != NULL)
+			if (ft_strchr(WALL_INVALID, map[i][j++]) != NULL
+				|| ft_strchr(WALL_INVALID, map[i][ft_strlen(map[i])
+					- 2]) != NULL)
 				return (FALSE);
 		}
 		i++;

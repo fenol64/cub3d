@@ -8,7 +8,7 @@ OBJS = $(SRCS:.c=.o)
 LIBFT_PATH=./libs/libft/libft.a
 MINILIBX_PATH=./libs/minilibx/libmlx.a
 
-COMPILER = cc -Wall -Wextra -Werror -I ./headers
+COMPILER = clang -g -Wall -Wextra -Werror -I ./headers
 
 .c.o:
 	@ $(COMPILER) -c $< -o $(<:.c=.o)
@@ -36,6 +36,9 @@ fclean:	clean
 	@ echo "🧹 cube3d fclean complete!\n"
 
 re: fclean all
+
+val: re
+	@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) $(MAP)
 
 norm:
 	@ norminette src/ headers/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_image.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fenol <fenol@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:55:56 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/11 22:47:11 by fenol            ###   ########.fr       */
+/*   Updated: 2024/08/06 22:47:54 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	put_pixel(int x, int y, int color, t_cube *cube)
 
 void	update_image(t_cube *cube)
 {
+	if (cube->img_ptr)
+		mlx_destroy_image(cube->mlx_ptr, cube->img_ptr);
 	cube->img_ptr = mlx_new_image(cube->mlx_ptr, SCREEN_WIDTH, SCREEN_HEIGHT);
 	cube->img_data = mlx_get_data_addr(cube->img_ptr, &cube->bpp,
 			&cube->size_line, &cube->endian);
