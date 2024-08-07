@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 00:32:37 by fnascime          #+#    #+#             */
-/*   Updated: 2024/08/07 00:43:37 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/08/07 01:41:56 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,25 @@ static int	have_player(char **map, t_pos *pos)
 	return (FALSE);
 }
 
+t_bool	validate_map_row(char *row)
+{
+	char	first_elem;
+	char	last_elem;
+	int		i;
+
+	i = 0;
+	while (row[i] == ' ')
+		i++;
+	first_elem = row[i];
+	i = ft_strlen(row) - 2;
+	while (row[i] == ' ' || row[i] == '\n')
+		i--;
+	last_elem = row[i];
+	if (first_elem != '1' || last_elem != '1')
+		return (FALSE);
+	return (TRUE);
+}
+
 static int	is_valid_walls(char **map, int rows)
 {
 	int	i;
@@ -61,10 +80,7 @@ static int	is_valid_walls(char **map, int rows)
 		}
 		else
 		{
-			if (ft_strchr(WALL_INVALID, map[i][0]) != NULL)
-				return (FALSE);
-			if ((ft_strchr(WALL_INVALID, map[i][ft_strlen(map[i])
-						- 2]) != NULL))
+			if (!validate_map_row(map[i]))
 				return (FALSE);
 		}
 	}
@@ -102,11 +118,6 @@ int	validate_map(char *path, t_cube *cube)
 	flood_fill(cube->player.x, cube->player.y, cube->map);
 	if (valid_map && is_valid_walls(cube->map, cube->rows))
 	{
-		ft_printf("Map is valid %d \n", is_valid_map(cube->map));
-		ft_printf("Map has player %d \n", have_player(cube->map,
-				&cube->player));
-		ft_printf("Map is valid walls %d \n", is_valid_walls(cube->map,
-				cube->rows));
 		cube->int_map = copy_char_to_int(cube->map, cube->rows,
 				cube->longest_row);
 		return (TRUE);
