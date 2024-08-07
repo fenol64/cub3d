@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 03:32:58 by fenol             #+#    #+#             */
-/*   Updated: 2024/08/07 03:58:09 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/08/07 04:00:43 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,8 @@
 int	mouse_hook(int button, int x, int y, t_cube *cube)
 {
 	(void)cube;
+	(void)button;
+	(void)x;
+	(void)y;
 	return (0);
 }
