@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/08/06 22:40:12 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/08/07 01:57:53 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		rgb_to_hex(char *rgb);
 
 // hooks
 void	free_cube(t_cube *cube);
+void	free_cube_no_mlx(t_cube *cube);
 int		close_hook(t_cube *cube);
 int		key_press_hook(int keycode, t_cube *cube);
 int		key_release_hook(int keycode, t_cube *cube);

@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:39:19 by fenol             #+#    #+#             */
-/*   Updated: 2024/08/06 22:52:22 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/08/07 01:58:50 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@ void	free_cube(t_cube *cube)
 		i++;
 	}
 	free(cube->int_map);
+	ft_free_matrix(cube->map);
+	free(cube->map_args.no);
+	free(cube->map_args.so);
+	free(cube->map_args.we);
+	free(cube->map_args.ea);
+	free(cube->map_args.c);
+	free(cube->map_args.f);
+}
+
+void	free_cube_no_mlx(t_cube *cube)
+{
 	ft_free_matrix(cube->map);
 	free(cube->map_args.no);
 	free(cube->map_args.so);

@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 00:32:37 by fnascime          #+#    #+#             */
-/*   Updated: 2024/08/07 01:41:56 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/08/07 01:58:51 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,7 @@ int	validate_map(char *path, t_cube *cube)
 				cube->longest_row);
 		return (TRUE);
 	}
-	return (handle_errors("Map Error"), FALSE);
+	free_cube_no_mlx(cube);
+	handle_errors("Map Error");
+	return (FALSE);
 }
