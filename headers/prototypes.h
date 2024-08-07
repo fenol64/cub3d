@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/08/02 16:53:29 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/06 22:10:02 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_bool	handle_mlx(t_cube *cube);
 
 // validations
 int		validate_map(char *path, t_cube *cube);
-t_bool  validate_all_tex_path(t_cube *cube);
+t_bool	validate_all_tex_path(t_cube *cube);
 t_bool	validate_args(int c, char **v);
 int		validate_file(char *path);
 int		validate_file_args(char *file_path, t_cube *cube);

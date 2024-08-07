@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 20:15:50 by fnascime          #+#    #+#             */
-/*   Updated: 2024/07/10 02:18:37 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/08/06 22:09:26 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ t_bool	main_handler(int c, char **v, t_cube *cube)
 	memset(cube, 0, sizeof(t_cube));
 	if (!validate_args(c, v))
 		return (FALSE);
-	if (!handle_file(v[1])
-			|| !handle_map(v[1], cube))
+	if (!handle_file(v[1]) || !handle_map(v[1], cube))
 		return (FALSE);
 	return (TRUE);
 }
