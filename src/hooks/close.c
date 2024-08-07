@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:39:19 by fenol             #+#    #+#             */
-/*   Updated: 2024/08/07 01:58:50 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/08/07 03:57:48 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int	close_win(t_cube *cube)
 	mlx_destroy_display(cube->mlx_ptr);
 	free(cube->mlx_ptr);
 	free_cube(cube);
-	ft_printf("Closing window\n");
 	return (0);
 }
 

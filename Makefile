@@ -8,7 +8,7 @@ OBJS = $(SRCS:.c=.o)
 LIBFT_PATH=./libs/libft/libft.a
 MINILIBX_PATH=./libs/minilibx/libmlx.a
 
-COMPILER = clang -g -Wall -Wextra -Werror -I ./headers
+COMPILER = cc -Wall -Wextra -Werror -I ./headers
 
 .c.o:
 	@ $(COMPILER) -c $< -o $(<:.c=.o)
@@ -20,7 +20,6 @@ $(NAME): $(OBJS)
 	@ echo "🚀 minilibx compiled"
 	@ make -C ./libs/libft
 	@ $(COMPILER) $(OBJS) -o $(NAME) $(LIBFT_PATH) $(MINILIBX_PATH) -lXext -lX11 -lm #-lz
-	make clean
 	@ echo "✅ cube3d compile complete!\n"
 
 clean:

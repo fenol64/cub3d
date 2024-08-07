@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:16:39 by fnascime          #+#    #+#             */
-/*   Updated: 2024/08/07 01:57:53 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/08/07 03:32:41 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_bool	validate_color(char *line);
 t_bool	validate_colors(char *line, t_map_args *map_args);
 
 // utils
+void	free_map_args(t_map_args *map_args);
 int		flood_fill(int x, int y, char **map);
 char	*ft_strdup_sw(const char *s, size_t size);
 char	**copy_map(char **map);

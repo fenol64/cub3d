@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:11:16 by fnascime          #+#    #+#             */
-/*   Updated: 2024/08/06 22:46:33 by fnascime         ###   ########.fr       */
+/*   Updated: 2024/08/07 03:53:54 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,11 @@ int	validate_arg(char *line, t_map_args *map_args)
 		return (TRUE);
 	else
 	{
-		printf("line: %s\n", line);
 		handle_errors("Invalid argument");
+		if (map_args->c)
+			free(map_args->c);
+		if (map_args->f)
+			free(map_args->f);
 		return (FALSE);
 	}
 	return (TRUE);
@@ -99,5 +102,6 @@ t_bool	validate_file_args(char *file_path, t_cube *cube)
 	finish_file(fd);
 	if (cube->validated_args)
 		return (TRUE);
+	free_map_args(&cube->map_args);
 	return (handle_errors("Invalid arguments"), FALSE);
 }
