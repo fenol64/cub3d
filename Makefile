@@ -8,7 +8,7 @@ OBJS = $(SRCS:.c=.o)
 LIBFT_PATH=./libs/libft/libft.a
 MINILIBX_PATH=./libs/minilibx/libmlx.a
 
-COMPILER = clang -g -Wall -Wextra -Werror -I ./headers
+COMPILER = cc -Wall -Wextra -Werror -I ./headers
 
 .c.o:
 	@ $(COMPILER) -c $< -o $(<:.c=.o)

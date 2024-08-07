@@ -17,8 +17,8 @@ t_bool	main_handler(int c, char **v, t_cube *cube)
 	memset(cube, 0, sizeof(t_cube));
 	if (!validate_args(c, v))
 		return (FALSE);
-	if (!(handle_file(v[1])
-			|| handle_map(v[1], cube)))
+	if (!handle_file(v[1])
+			|| !handle_map(v[1], cube))
 		return (FALSE);
 	return (TRUE);
 }
