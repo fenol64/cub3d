@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 21:47:46 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/03 21:49:55 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/07 00:30:44 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static int	is_valid(int x, int y, char **map)
 {
 	if (x >= 0 && map[x] && y >= 0 && map[x][y] && (map[x][y] == '0'
-		|| map[x][y] == ' '))
+			|| map[x][y] == ' ' || map[x][y] == 'N' || map[x][y] == 'S'
+			|| map[x][y] == 'W' || map[x][y] == 'E'))
 		return (1);
 	return (0);
 }
